@@ -67,3 +67,4 @@ gem "devise", "~> 4.9"
 gem 'bootstrap', '~> 5.3.2'
 gem 'popper_js', '~> 2.11.8'
 gem "cssbundling-rails"
+gem 'devise-bootstrap-views', '~> 1.0'
