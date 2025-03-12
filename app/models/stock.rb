@@ -1,6 +1,6 @@
 class Stock < ApplicationRecord
   def self.new_lookup(ticker_symbol)
-=begin
+
     crypto = Alphavantage::Crypto.new(symbol: ticker_symbol, market: 'USD')
     
     daily_data = crypto.daily
@@ -14,10 +14,13 @@ class Stock < ApplicationRecord
     
     price = last_day[1]['close'].to_f
     name = daily_data.meta_data.digital_currency_name
-=end
-    { ticker: ticker_symbol, name: "Bitcoin", price: 80000 }
-  #rescue StandardError => e
-    #puts "Помилка в new_lookup: #{e.message}"
-    #nil
+    begin
+    { ticker: ticker_symbol, name: name, price: price }
+    rescue => exception
+      
+    end
+  rescue StandardError => e
+    puts "Помилка в new_lookup: #{e.message}"
+    nil
   end
 end
