@@ -73,3 +73,4 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'alphavantage'
 gem 'pry'
 gem 'byebug'
+gem 'rails-ujs'

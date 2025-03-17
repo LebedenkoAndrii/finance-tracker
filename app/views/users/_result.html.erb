@@ -1,0 +1,7 @@
+<% if @stock %>
+  <div class="card card-header d-inline">
+    <strong>Symbol: </strong> <%= @stock[:ticker] %>
+    <strong>Name: </strong> <%= @stock[:name] %>
+    <strong>Price: </strong> <%= number_to_currency(@stock[:price]) %>
+  </div>
+<% end %> 
