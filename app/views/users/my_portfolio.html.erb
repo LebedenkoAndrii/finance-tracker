@@ -1,13 +1,18 @@
 <h1>My portfolio</h1>
 <div class="w-100 pt-5 d-flex flex-column mb-3">
   <h3>Search stocks</h3>
-  <%= form_tag search_stock_path, remote: true, method: :get do %>
+  <div id="messages">
+    <% if flash[:alert] %>
+      <div class="alert alert-warning"><%= flash[:alert] %></div>
+    <% end %>
+  </div>
+  <%= form_with url: search_stock_path, method: :get, data: { turbo: true } do |form| %>
     <div class="form-group row">
       <div class="col-sm-9 pe-0">
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
+        <%= form.text_field :stock, value: params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
       </div>
       <div class="col-sm-3 ps-0">
-        <%= button_tag type: :submit, class: "btn btn-success" do %>
+        <%= form.button type: :submit, class: "btn btn-success" do %>
           <i class="bi bi-search fs-4"></i>
         <% end %>
       </div>

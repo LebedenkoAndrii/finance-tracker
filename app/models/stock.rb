@@ -15,11 +15,9 @@ class Stock < ApplicationRecord
     name = daily_data.meta_data.digital_currency_name
 
     { ticker: ticker_symbol, name: name, price: price }
-   rescue => exception
-     return nil
-  end
 
   rescue StandardError => e
-    puts "Помилка в new_lookup: #{e.message}"
+    Rails.logger.error("Error fetching stock data: #{e.message}")
     nil
+  end
 end
