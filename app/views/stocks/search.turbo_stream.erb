@@ -1,0 +1,4 @@
+<%= turbo_stream.update "results" do %>
+  <%= render partial: 'users/result', locals: { stock: @stock } %>
+<% end %>
+<%= turbo_stream.replace "messages", partial: "layouts/messages" %>

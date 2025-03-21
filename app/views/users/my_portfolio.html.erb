@@ -1,11 +1,6 @@
 <h1>My portfolio</h1>
 <div class="w-100 pt-5 d-flex flex-column mb-3">
   <h3>Search stocks</h3>
-  <div id="messages">
-    <% if flash[:alert] %>
-      <div class="alert alert-warning"><%= flash[:alert] %></div>
-    <% end %>
-  </div>
   <%= form_with url: search_stock_path, method: :get, data: { turbo: true } do |form| %>
     <div class="form-group row">
       <div class="col-sm-9 pe-0">
