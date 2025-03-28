@@ -6,12 +6,12 @@ class StocksController < ApplicationController
       if @stock
         render 'users/my_portfolio'
       else
-        flash[:alert] = "Please enter a valid symbol to search"
-        redirect_to my_portfolio_path
+        flash.now[:alert] = "Please enter a valid symbol to search"
+        render 'users/my_portfolio'
       end    
     else
       flash[:alert] = "Please enter a symbol to search"
-      redirect_to my_portfolio_path
+      render 'users/my_portfolio'
     end
   end
 
