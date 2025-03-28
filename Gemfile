@@ -71,3 +71,6 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'httparty'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'alphavantage'
+gem 'pry'
+gem 'byebug'
+gem 'rails-ujs'
