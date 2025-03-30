@@ -1,7 +1,7 @@
 <h1>My portfolio</h1>
 <div class="w-100 pt-5 d-flex flex-column mb-3">
   <h3>Search stocks</h3>
-  <%= form_tag search_stock_path, method: :get do |form| %>
+  <%= form_tag search_stock_path, data: { turbo: true }, method: :get do |form| %>
     <div class="form-group row">
       <div class="col-sm-9 pe-0">
         <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
