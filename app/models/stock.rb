@@ -25,4 +25,8 @@ class Stock < ApplicationRecord
     Rails.logger.error("Error fetching stock data: #{e.message}")
     nil
   end
+
+  def self.check_db(ticker_symbol)
+    where(ticker: ticker_symbol).first
+  end
 end

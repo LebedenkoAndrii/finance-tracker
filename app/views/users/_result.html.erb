@@ -3,5 +3,7 @@
     <strong>Symbol: <%= @stock[:ticker] %></strong> 
     <strong>Name: <%= @stock[:name] %></strong> 
     <strong>Price: <%= number_to_currency(@stock[:price]) %></strong> 
+    <%= link_to "Add to portfolio", user_stocks_path(user: current_user, ticker: @stock[:ticker]), 
+                                    class: "btn btn-success", method: :post, data: { turbo_method: :post } %>
   </div>
 <% end %> 
