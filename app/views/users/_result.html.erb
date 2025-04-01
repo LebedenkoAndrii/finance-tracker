@@ -3,7 +3,18 @@
     <strong>Symbol: <%= @stock[:ticker] %></strong> 
     <strong>Name: <%= @stock[:name] %></strong> 
     <strong>Price: <%= number_to_currency(@stock[:price]) %></strong> 
-    <%= link_to "Add to portfolio", user_stocks_path(user: current_user, ticker: @stock[:ticker]), 
-                                    class: "btn btn-success", method: :post, data: { turbo_method: :post } %>
+    <% if current_user.can_track_stock?(@stock[:ticker]) %>
+      <%= link_to "Add to portfolio", user_stocks_path(user: current_user, ticker: @stock[:ticker]), 
+                                      class: "btn btn-success", method: :post, data: { turbo_method: :post } %>
+    <% else %>
+    <span class="badge text-bg-secondary">You are already tracking
+      <% if !current_user.under_stock_limit? %>
+        10 stocks
+      <% end %>
+      <% if current_user.stock_already_tracked?(@stock[:ticker]) %>
+        this stock
+      <% end %>
+    </span>
+    <% end %>
   </div>
 <% end %> 
