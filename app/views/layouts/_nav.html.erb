@@ -18,16 +18,16 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
+              Profile
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
         </ul>
-        <ul class="navbar-nav me-auto align-items-center">
+        <ul class="navbar-nav me-2 align-items-center">
           <li class="nav-item username">
             <i class="bi bi-person-circle"></i>
             <span class="pe-2"><%= current_user.fullname %></span>
