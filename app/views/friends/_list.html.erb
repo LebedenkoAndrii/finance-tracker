@@ -10,12 +10,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @tracked_stocks.each do |stock| %>
+          <% @friends.each do |friends| %>
           <tr>
-            <th scope="row"><%= stock.ticker %></th>
-            <td><%= stock.name %></td>
-            <td><%= stock.last_price %></td>
-            <td><%= link_to "Stop following", user_stock_path(stock), data: {turbo_confirm: "Are you sure?", turbo_method: :delete}, class: "btn btn-warning" %></td>
+            <th scope="row"><%= friends.email %></th>
+            <td><%= friends.first_name %></td>
+            <td><%= friends.last_name %></td>
+            <td><%= link_to "Stop following", "#", data: {turbo_confirm: "Are you sure?", turbo_method: :delete}, class: "btn btn-warning" %></td>
           </tr>
           <% end %>
         </tbody>
