@@ -5,15 +5,15 @@ class UsersController < ApplicationController
   end
 
   def friends
-    @friends = current_user.friends
-    @friend = nil
+    @friends_list = current_user.friends
+    @friends_list = []
   end
 
   def search
-    @friends = current_user.friends
+    @friends_list = current_user.friends
     if params[:friend].present?
-      @friend = params[:friend]
-      if @friend
+      @friends = User.search(params[:friend])
+      if @friends
         render 'users/friends'
       else
         flash.now[:alert] = "Couldn`t find user"
