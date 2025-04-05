@@ -1,0 +1,7 @@
+<% if @friend %>
+  <div class="card card-header d-inline">
+    <strong>Email: <%= @friend %></strong> 
+    <strong>First name: <%= @friend %></strong> 
+    <strong>Last name: <%= @friend %></strong> 
+    <%= link_to "Follow friend?", "#", class: "btn btn-success", turbo_method: :post %>
+<% end %> 
