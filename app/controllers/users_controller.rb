@@ -5,23 +5,35 @@ class UsersController < ApplicationController
   end
 
   def friends
-    @friends_list = current_user.friends
-    @friends_list = []
+    @friends_list = current_user.friends || []
+    @friends = []
   end
 
   def search
     @friends_list = current_user.friends
     if params[:friend].present?
       @friends = User.search(params[:friend])
-      if @friends
-        render 'users/friends'
+      @friends = [] if @friends.nil?
+      if @friends.any?
+        respond_to do |format|
+          format.turbo_stream do
+            render turbo_stream: turbo_stream.replace("friend_result", partial: "friends/friend_result", locals: { friends: @friends })
+          end
+          format.html { render 'users/friends' }
+        end
       else
         flash.now[:alert] = "Couldn`t find user"
-        render 'users/friends'
-      end    
+        respond_to do |format|
+          format.turbo_stream { render turbo_stream: turbo_stream.replace("messages", partial: "layouts/messages") }
+          format.html { render 'users/friends' }
+        end
+      end
     else
       flash[:alert] = "Please enter a friend name or email to search"
-      render 'users/friends'
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("messages", partial: "layouts/messages") }
+        format.html { render 'users/friends' }
+      end
     end
   end
 end

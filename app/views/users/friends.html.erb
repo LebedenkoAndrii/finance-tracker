@@ -18,7 +18,9 @@
 
 <%= render "friends/friend_result" %>
 
-<h2 class="mt-3">List of your friends</h2>
 <% if !@friends_list.empty? %>
+  <h2 class="mt-3">List of your friends</h2>
   <%= render "friends/list" %>
+<% else %>
+<h2 class="mt-3">You have no friends yet</h2>
 <% end %>
