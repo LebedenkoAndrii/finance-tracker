@@ -10,7 +10,7 @@
           <li class="nav-item <%= "fw-medium" if request.path == my_portfolio_path %>">
             <%= link_to "My portfolio", my_portfolio_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= "fw-medium" if request.path == friends_path %>">
             <%= link_to "Friends", friends_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
@@ -19,8 +19,6 @@
             </a>
             <ul class="dropdown-menu">
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
         </ul>
