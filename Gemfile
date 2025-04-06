@@ -6,6 +6,7 @@ gem "rails", "~> 8.0.1"
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
+gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -61,3 +62,15 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+gem 'bootstrap', '~> 5.3.2'
+gem 'popper_js', '~> 2.11.8'
+gem "cssbundling-rails"
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'httparty'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'alphavantage'
+gem 'pry'
+gem 'byebug'
+gem 'rails-ujs'
