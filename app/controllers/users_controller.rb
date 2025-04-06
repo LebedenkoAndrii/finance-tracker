@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if params[:friend].present?
       @friends = User.search(params[:friend])
       @friends = [] if @friends.nil?
+      @friends = current_user.except_current_user(@friends)
       if @friends.any?
         respond_to do |format|
           format.turbo_stream do

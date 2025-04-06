@@ -15,7 +15,7 @@
             <th scope="row"><%= friend.email %></th>
             <td><%= friend.first_name %></td>
             <td><%= friend.last_name %></td>
-            <td><%= link_to "Stop following", "#", data: {turbo_confirm: "Are you sure?", turbo_method: :delete}, class: "btn btn-warning" %></td>
+            <td><%= link_to "Stop following", friendship_path(friend), data: {turbo_confirm: "Are you sure?", turbo_method: :delete}, class: "btn btn-warning" %></td>
           </tr>
           <% end %>
         </tbody>
