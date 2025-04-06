@@ -5,7 +5,7 @@ class StocksController < ApplicationController
     if params[:stock].present?
       @stock = Stock.new_lookup(params[:stock])
       @stocks = [] if @stocks.nil?
-      if @stock.any?
+      if @stock
         respond_to do |format|
           format.turbo_stream do
             render turbo_stream: turbo_stream.replace("result", partial: "users/result", locals: { stocks: @stocks })

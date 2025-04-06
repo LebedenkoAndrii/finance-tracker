@@ -19,7 +19,7 @@ class Stock < ApplicationRecord
     price = last_day[1]['close'].to_f
     name = daily_data.meta_data.digital_currency_name
 
-    { ticker: ticker_symbol, name: "name", price: 100000 }
+    { ticker: ticker_symbol, name: name, price: price }
 
   rescue StandardError => e
     Rails.logger.error("Error fetching stock data: #{e.message}")
